@@ -2,6 +2,9 @@ package menu;
 
 import java.util.List;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import model.Customer;
 import persistence.RepositoryCustomer;
 
@@ -77,9 +80,35 @@ public class MenuCustomer {
         customer.setName(input.next());
         System.out.println("Type the phone number");
         customer.setPhoneNumber(input.next());
-        System.out.println("Type the email");
+
+        //email adding and checking if valid
+        String email = null;
+        boolean invalidEmail = true;
+        while (invalidEmail){
+            System.out.println("Type the email");
+            email=input.next();
+            boolean result = validateEmail(email);
+            if (result){
+                invalidEmail = false;
+            }
+        }
         customer.setEmail(input.next());
+
         repositoryCustomer.saveCustomer(customer);
         System.out.println("Customer saved successfully!");
+    }
+
+    //method for checking if name is entered correctly
+    private boolean validateName (String name){
+        return true;
+    }
+
+
+    //method for checking if email is entered correctly
+    private boolean validateEmail (String email){
+        Pattern pattern = Pattern.compile("^[A-Za-z0-9+_.-]+@(.+)$");
+        Matcher matcher = pattern.matcher(email);
+        System.out.println("Entered email is correct: " + matcher.matches());
+        return matcher.matches();
     }
 }
