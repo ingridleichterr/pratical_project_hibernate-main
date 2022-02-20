@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.time.LocalDate;
+import java.util.Date;
 
 //creating table
 @Entity
@@ -25,6 +27,10 @@ public class Customer {
     @Column(name = "email")
     private String email;
 
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "dateOfRegister")
+    private LocalDate dateOfRegister = LocalDate.now();
+
     //getters and setters
     public int getCustomerId() {
         return customerId;
@@ -38,8 +44,7 @@ public class Customer {
         return name;
     }
 
-    public void setName(String firstName) {
-        this.name = name;
+    public void setName(String firstName) {this.name = name;
     }
 
     public String getEmail() {
@@ -58,14 +63,22 @@ public class Customer {
         this.phoneNumber = phoneNumber;
     }
 
+    public LocalDate getDateOfRegister() {return dateOfRegister;
+    }
+
+    public void setDateOfRegister(LocalDate dateOfRegister) {this.dateOfRegister = dateOfRegister;
+    }
+
     //to string method
+
     @Override
     public String toString() {
-        return "customer{" +
+        return "Customer{" +
                 "customerId=" + customerId +
                 ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
+                ", email='" + email + '\'' +
+                ", dateOfRegister=" + dateOfRegister +
                 '}';
     }
 }

@@ -19,5 +19,19 @@ public class RepositoryCustomer {
                 .getResultList();
     }
 
+    //method save customer
+    public void saveCustomer(Customer customer){
+        try {
+            em.getTransaction().begin();
+            this.em.persist(customer);
+            em.getTransaction().commit();
+
+        }catch (Exception ex){
+            em.getTransaction().rollback();
+        }
+    }
+
+
+
 
 }

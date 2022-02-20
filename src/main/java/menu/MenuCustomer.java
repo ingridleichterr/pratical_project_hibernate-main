@@ -14,7 +14,7 @@ public class MenuCustomer {
         System.out.println("-------------------------\n");
         System.out.println();
         System.out.println("1: List all customers");
-        System.out.println("2: Update account status");
+        System.out.println("2: Add new customer ");
         System.out.println("3: List total active customers");
         System.out.println("4: List total active and not active customers");
         System.out.println("5: Update customers phone number by customer id");
@@ -33,6 +33,7 @@ public class MenuCustomer {
                     menuListAllCustomers(input);
                     break;
                 case 2:
+                    saveNewCustomer(input);
                     break;
                 case 3:
                     break;
@@ -52,7 +53,7 @@ public class MenuCustomer {
     }
 
 
-
+    //list all customers case 1
     private void menuListAllCustomers(Scanner input) {
         List<Customer> listCustomer = repositoryCustomer.listAllCustomers();
 
@@ -67,4 +68,18 @@ public class MenuCustomer {
         }
     }
 
+    //save new customer case 2
+    public void saveNewCustomer(Scanner input){ //case1
+
+        Customer customer = new Customer();
+        System.out.println("Menu register new customer");
+        System.out.println("Type the full name of the customer");
+        customer.setName(input.next());
+        System.out.println("Type the phone number");
+        customer.setPhoneNumber(input.next());
+        System.out.println("Type the email");
+        customer.setEmail(input.next());
+        repositoryCustomer.saveCustomer(customer);
+        System.out.println("Customer saved successfully!");
+    }
 }
