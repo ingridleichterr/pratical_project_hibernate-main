@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 //creating table
 @Entity
-public class mealType {
+public class MealType {
 
     //creating columns
     @Id

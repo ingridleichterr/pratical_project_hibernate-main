@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 //create table
 @Entity
-public class room {
+public class Room {
 
     //create columns
     @Id
@@ -24,11 +24,11 @@ public class room {
     //foreign keys
     @ManyToOne
     @JoinColumn(name="guestHouseId")
-    private guestHouse guestHouse;
+    private GuestHouse guestHouse;
 
     @OneToOne
     @JoinColumn(name="roomTypeId")
-    private roomType roomType;
+    private RoomType roomType;
 
     //getters and setters
     public int getRoomId() {return roomId;

@@ -8,7 +8,7 @@ import javax.persistence.Id;
 
 //creating table
 @Entity
-public class customer {
+public class Customer {
 
     //creating columns
     @Id

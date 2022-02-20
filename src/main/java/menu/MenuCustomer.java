@@ -2,7 +2,7 @@ package menu;
 
 import java.util.List;
 import java.util.Scanner;
-import model.customer;
+import model.Customer;
 import persistence.RepositoryCustomer;
 
 public class MenuCustomer {
@@ -54,11 +54,11 @@ public class MenuCustomer {
 
 
     private void menuListAllCustomers(Scanner input) {
-        List<customer> listCustomer = repositoryCustomer.listAllCustomers();
+        List<Customer> listCustomer = repositoryCustomer.listAllCustomers();
 
         if (listCustomer.size() > 0) {
             System.out.println("\nList of Customers:");
-            for (customer cust : listCustomer) {
+            for (Customer cust : listCustomer) {
                 System.out.println(cust.toString());
             }
         } else {

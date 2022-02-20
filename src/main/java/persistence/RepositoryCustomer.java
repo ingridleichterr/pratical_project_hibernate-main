@@ -2,7 +2,7 @@ package persistence;
 
 import java.util.List;
 import javax.persistence.EntityManager;
-import model.customer;
+import model.Customer;
 import util.DBUtil;
 
 public class RepositoryCustomer {
@@ -14,7 +14,7 @@ public class RepositoryCustomer {
     }
 
     @SuppressWarnings("unchecked")
-    public List<customer> listAllCustomers() {
+    public List<Customer> listAllCustomers() {
         return em.createQuery("Select f from Customer as f order by f.firstName asc")
                 .getResultList();
     }

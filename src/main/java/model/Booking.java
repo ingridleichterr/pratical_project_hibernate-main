@@ -5,7 +5,7 @@ import java.util.Date;
 
 //creating table
 @Entity
-public class booking {
+public class Booking {
 
     //creating columns
     @Id
@@ -34,19 +34,19 @@ public class booking {
     //foreign keys
     @OneToOne
     @JoinColumn(name="bookingPaymentId")
-    private bookingPayment bookingPaymentId;
+    private BookingPayment bookingPaymentId;
 
     @ManyToOne
     @JoinColumn(name="roomId")
-    private room room;
+    private Room room;
 
     @ManyToOne
     @JoinColumn(name="customerId")
-    private customer customer;
+    private Customer customer;
 
     @ManyToOne
     @JoinColumn(name="mealId")
-    private meal meal;
+    private Meal meal;
 
     //getters and setters
     public int getBookingId() {

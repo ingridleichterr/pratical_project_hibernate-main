@@ -5,7 +5,7 @@ import javax.persistence.*;
 
 //creating table
 @Entity
-public class roomType {
+public class RoomType {
 
     //creating columns
     @Id

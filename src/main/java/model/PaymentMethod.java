@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 //creating table
 @Entity
-public class paymentMethod {
+public class PaymentMethod {
 
     //creating columns
     @Id

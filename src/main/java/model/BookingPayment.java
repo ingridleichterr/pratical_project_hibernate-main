@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 //creating table
 @Entity
-public class bookingPayment {
+public class BookingPayment {
 
     //creating columns
     @Id
@@ -18,7 +18,7 @@ public class bookingPayment {
     //foreign keys
     @ManyToOne
     @JoinColumn(name="paymentMethodId")
-    private paymentMethod paymentMethod;
+    private PaymentMethod paymentMethod;
 
     //getters and setters
     public int getBookingPaymentId() {return bookingPaymentId;
