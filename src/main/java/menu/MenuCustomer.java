@@ -153,5 +153,6 @@ public class MenuCustomer {
             System.out.println("Entered phone number is incorrect. Please enter valid phone number!");
         }
         return matcher.matches();
+
     }
 }
