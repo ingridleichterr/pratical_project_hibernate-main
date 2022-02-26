@@ -12,11 +12,14 @@ public class Room {
     @Column(name = "roomId")
     private int roomId;
 
+    @Column(name = "name")
+    private String name;
+
     @Column(name = "availability")
     private int availability;
 
     @Column(name = "price")
-    private int price;
+    private double price;
 
     //foreign keys
     @ManyToOne
@@ -27,26 +30,66 @@ public class Room {
     @JoinColumn(name="roomTypeId")
     private RoomType roomType;
 
+    //constructor
+    public Room(String name, int availability, double price, RoomType roomType) {
+        this.name = name;
+        this.availability = availability;
+        this.price = price;
+        this.roomType = roomType;
+    }
+    //empty constructor
+    public Room() {
+    }
+
     //getters and setters
-    public int getRoomId() {return roomId;
+
+    public int getRoomId() {
+        return roomId;
     }
 
-    public void setRoomId(int roomId) {this.roomId = roomId;
+    public void setRoomId(int roomId) {
+        this.roomId = roomId;
     }
 
-    public int getAvailability() {return availability;
+    public String getName() {
+        return name;
     }
 
-    public void setAvailability(int availability) {this.availability = availability;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getPrice() {return price;
+    public int getAvailability() {
+        return availability;
     }
 
-    public void setPrice(int price) {this.price = price;
+    public void setAvailability(int availability) {
+        this.availability = availability;
     }
 
+    public double getPrice() {
+        return price;
+    }
 
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public GuestHouse getGuestHouse() {
+        return guestHouse;
+    }
+
+    public void setGuestHouse(GuestHouse guestHouse) {
+        this.guestHouse = guestHouse;
+    }
+
+    public RoomType getRoomType() {
+        return roomType;
+    }
+
+    public void setRoomType(RoomType roomType) {
+        this.roomType = roomType;
+    }
 
     //to string method
 
@@ -54,6 +97,7 @@ public class Room {
     public String toString() {
         return "Room{" +
                 "roomId=" + roomId +
+                ", name='" + name + '\'' +
                 ", availability=" + availability +
                 ", price=" + price +
                 ", guestHouse=" + guestHouse +

@@ -31,7 +31,7 @@ public class MenuGuestHouse {
             userChoice = menuOptions(input);
             switch (userChoice) {
                 case 1:
-                    showGuestHouseInfo(input); //not working
+                    showGuestHouseInfo(input);
                     break;
                 case 2:
                     break;
@@ -48,15 +48,17 @@ public class MenuGuestHouse {
         } while (userChoice != 100);
     }
 
-    // case 1 - show questHouse info - NOT WORKING!
+    // case 1 - show questHouse info
     private void showGuestHouseInfo(Scanner input) {
-        List<GuestHouse> guestHouseTable = repositoryGuestHouse.showGuestHouseTable();
+        List<GuestHouse> guestHouseInfo = repositoryGuestHouse.showGuestHouseInfo();
 
-            for (GuestHouse gh : guestHouseTable) {
+            for (GuestHouse gh : guestHouseInfo) {
                 System.out.println(gh.toString());
             }
 
             menuOptions(input);
         }
+
+
     }
 

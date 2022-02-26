@@ -19,8 +19,13 @@ public class RoomType {
     @Column(name = "description")
     private String description;
 
+    @Column(name = "priceRange")
+    private String priceRange;
+
     @Column(name = "quantity")
     private int quantity;
+
+
 
     //getters and setters
     public int getRoomTypeId() {return roomTypeId;
@@ -41,6 +46,14 @@ public class RoomType {
     public void setDescription(String description) {this.description = description;
     }
 
+    public String getPriceRange() {
+        return priceRange;
+    }
+
+    public void setPriceRange(String priceRange) {
+        this.priceRange = priceRange;
+    }
+
     public int getQuantity() {return quantity;
     }
 
@@ -48,13 +61,13 @@ public class RoomType {
     }
 
     //to string method
-
     @Override
     public String toString() {
         return "RoomType{" +
                 "roomTypeId=" + roomTypeId +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
+                ", priceRange='" + priceRange + '\'' +
                 ", quantity=" + quantity +
                 '}';
     }

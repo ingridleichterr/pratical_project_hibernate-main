@@ -12,11 +12,14 @@ public class Meal {
     @Column(name = "mealId")
     private int mealId;
 
-    @Column(name = "quantity")
-    private int quantity;
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "description")
+    private String description;
 
     @Column(name = "price")
-    private int price;
+    private double price;
 
     //foreign keys
     @ManyToOne
@@ -37,29 +40,41 @@ public class Meal {
         this.mealId = mealId;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public String getName() {
+        return name;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getPrice() {
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
     //to string method
+
     @Override
     public String toString() {
-        return "meal{" +
+        return "Meal{" +
                 "mealId=" + mealId +
-                ", quantity=" + quantity +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
                 ", price=" + price +
+                ", mealType=" + mealType +
+                ", guestHouse=" + guestHouse +
                 '}';
     }
 }

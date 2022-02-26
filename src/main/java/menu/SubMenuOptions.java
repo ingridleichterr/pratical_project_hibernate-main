@@ -11,12 +11,14 @@ public class SubMenuOptions {
     private MenuCustomer menuCustomer;
     private MenuGuestHouse menuGuestHouse;
     private MenuRoom menuRoom;
+    private MenuMeal menuMeal;
 
     public SubMenuOptions() {
 
         this.menuCustomer = new MenuCustomer();
         this.menuGuestHouse = new MenuGuestHouse();
         this.menuRoom = new MenuRoom();
+        this.menuMeal = new MenuMeal();
     }
 
     private int menuOptions(Scanner input) {
@@ -50,6 +52,7 @@ public class SubMenuOptions {
                     this.menuRoom.menuChoice(input);
                     break;
                 case 4:
+                    this.menuMeal.menuChoice(input);
                     break;
                 case 5:
                     break;

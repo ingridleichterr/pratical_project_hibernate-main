@@ -15,8 +15,8 @@ public class RepositoryGuestHouse {
         em = DBUtil.getEntityManager();
     }
 
-    public List<GuestHouse> showGuestHouseTable() {
-        String sql = "SELECT address, name, phoneNumber" +
+    public List<GuestHouse> showGuestHouseInfo() {
+        String sql = "SELECT new model.GuestHouse(address, name, phoneNumber)" +
                 " FROM GuestHouse";
 
         return em.createQuery(sql, GuestHouse.class).getResultList();

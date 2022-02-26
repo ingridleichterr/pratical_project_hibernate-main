@@ -33,7 +33,7 @@ public class MenuCustomer {
             userChoice = menuOptions(input);
             switch (userChoice) {
                 case 1:
-                    menuListAllCustomers(input);
+                    //menuListAllCustomers(input);
                     break;
                 case 2:
                     saveNewCustomer(input);
@@ -57,7 +57,7 @@ public class MenuCustomer {
 
 
     //list all customers case 1
-    private void menuListAllCustomers(Scanner input) {
+  /*  private void menuListAllCustomers(Scanner input) {
         List<Customer> listCustomer = repositoryCustomer.listAllCustomers();
 
         if (listCustomer.size() > 0) {
@@ -70,6 +70,8 @@ public class MenuCustomer {
             menuOptions(input);
         }
     }
+
+   */
 
     //save new customer case 2
     public void saveNewCustomer(Scanner input){ //case1
@@ -144,7 +146,7 @@ public class MenuCustomer {
         return matcher.matches();
     }
 
-    //method for checking if phonenumber is entered correctly
+    //method for checking if phone number is entered correctly
     private boolean validatePhoneNumber (String phoneNumber){
         Pattern pattern = Pattern.compile("[0-9*#+() -]*");
         Matcher matcher = pattern.matcher(phoneNumber);

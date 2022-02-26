@@ -21,6 +21,17 @@ public class GuestHouse {
     @Column(name = "phoneNumber")
     private String phoneNumber;
 
+    //constructor
+    public GuestHouse(String name, String address, String phoneNumber) {
+        this.name = name;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+    }
+
+    //empty constructor
+    public GuestHouse() {
+    }
+
     //getters and setters
     public int getBookingId() {return bookingId;
     }
@@ -47,9 +58,10 @@ public class GuestHouse {
     }
 
     //to string method
+
     @Override
     public String toString() {
-        return "guestHouse{" +
+        return "GuestHouse{" +
                 "bookingId=" + bookingId +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +

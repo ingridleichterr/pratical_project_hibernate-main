@@ -1,7 +1,6 @@
 package menu;
 
 import model.Room;
-import persistence.RepositoryCustomer;
 import persistence.RepositoryRoom;
 
 import java.util.Scanner;
@@ -59,13 +58,17 @@ public class MenuRoom {
 
         Room room = new Room();
         System.out.println("Menu register new room");
-        System.out.println("Enter available rooms:");
+        System.out.print("Enter room name: ");
+        room.setName(input.next());
+
+        System.out.print("Enter total available rooms: ");
         room.setAvailability(input.nextInt());
 
-        System.out.println("Enter room price:");
-        room.setPrice(input.nextInt());
-        //System.out.println("Enter amount of rooms:");
-        //room.setQuantity(input.nextInt());
+        System.out.print("Enter room price: ");
+        room.setPrice(input.nextDouble());
+
+        //System.out.print("Enter room type: ");
+        //room.setRoomType(input.nextInt());
 
         repositoryRoom.saveRoom(room);
         System.out.println("Room saved successfully!");
