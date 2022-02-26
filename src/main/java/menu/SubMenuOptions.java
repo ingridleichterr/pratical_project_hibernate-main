@@ -1,5 +1,7 @@
 package menu;
 
+import model.Customer;
+import model.Room;
 import util.DBUtil;
 
 import java.util.Scanner;
@@ -8,11 +10,13 @@ public class SubMenuOptions {
     boolean exit = false;
     private MenuCustomer menuCustomer;
     private MenuGuestHouse menuGuestHouse;
+    private MenuRoom menuRoom;
 
     public SubMenuOptions() {
 
         this.menuCustomer = new MenuCustomer();
         this.menuGuestHouse = new MenuGuestHouse();
+        this.menuRoom = new MenuRoom();
     }
 
     private int menuOptions(Scanner input) {
@@ -43,6 +47,7 @@ public class SubMenuOptions {
                     this.menuGuestHouse.menuChoice(input);
                     break;
                 case 3:
+                    this.menuRoom.menuChoice(input);
                     break;
                 case 4:
                     break;
@@ -69,4 +74,5 @@ public class SubMenuOptions {
             }
         }
     }
+
 }

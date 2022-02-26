@@ -18,9 +18,6 @@ public class Room {
     @Column(name = "price")
     private int price;
 
-    @Column(name = "quantity")
-    private int quantity;
-
     //foreign keys
     @ManyToOne
     @JoinColumn(name="guestHouseId")
@@ -49,20 +46,18 @@ public class Room {
     public void setPrice(int price) {this.price = price;
     }
 
-    public int getQuantity() {return quantity;
-    }
 
-    public void setQuantity(int quantity) {this.quantity = quantity;
-    }
 
     //to string method
+
     @Override
     public String toString() {
-        return "room{" +
+        return "Room{" +
                 "roomId=" + roomId +
                 ", availability=" + availability +
                 ", price=" + price +
-                ", quantity=" + quantity +
+                ", guestHouse=" + guestHouse +
+                ", roomType=" + roomType +
                 '}';
     }
 }

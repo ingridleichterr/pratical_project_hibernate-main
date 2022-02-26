@@ -88,20 +88,20 @@ public class MenuCustomer {
                 invalidName=false;
             }
         }
-        customer.setName(input.next());
+        customer.setName(name);
 
         //phone number adding and checking if valid
         String phoneNumber = null;
         boolean invalidPhoneNum = true;
         while(invalidPhoneNum){
             System.out.println("Type the phone number");
-            phoneNumber= input.next();
+            phoneNumber = input.next();
             boolean result = validatePhoneNumber(phoneNumber);
             if (result){
                 invalidPhoneNum = false;
             }
         }
-        customer.setPhoneNumber(input.next());
+        customer.setPhoneNumber(phoneNumber);
 
         //email adding and checking if valid
         String email = null;
@@ -114,7 +114,7 @@ public class MenuCustomer {
                 invalidEmail = false;
             }
         }
-        customer.setEmail(input.next());
+        customer.setEmail(email);
 
         repositoryCustomer.saveCustomer(customer);
         System.out.println("Customer saved successfully!");
