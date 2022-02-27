@@ -5,6 +5,7 @@ import model.Customer;
 import model.GuestHouse;
 import persistence.RepositoryGuestHouse;
 
+import java.text.ParseException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -24,7 +25,7 @@ public class MenuGuestHouse {
         return input.nextInt();
     }
 
-    protected void menuChoice(Scanner input) {
+    protected void menuChoice(Scanner input) throws ParseException {
 
         int userChoice;
         do {

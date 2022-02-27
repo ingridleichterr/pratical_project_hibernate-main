@@ -13,9 +13,10 @@ public class RepositoryCustomer {
         em = DBUtil.getEntityManager();
     }
 
+    //method list all cusomers
     @SuppressWarnings("unchecked")
     public List<Customer> listAllCustomers() {
-        return em.createQuery("Select f from Customer as f order by f.firstName asc")
+        return em.createQuery("Select n from Customer as n order by n.name asc")
                 .getResultList();
     }
 
@@ -25,12 +26,16 @@ public class RepositoryCustomer {
             em.getTransaction().begin();
             this.em.persist(customer);
             em.getTransaction().commit();
-
         }catch (Exception ex){
             em.getTransaction().rollback();
         }
     }
 
+    //method count total customers
+    public long countCustomers(){
+        String sql = "SELECT count(customerId) FROM Customer";
+        return (long)em.createQuery(sql).getSingleResult();
+    }
 
 
 

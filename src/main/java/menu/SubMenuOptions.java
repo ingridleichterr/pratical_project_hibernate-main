@@ -4,6 +4,7 @@ import model.Customer;
 import model.Room;
 import util.DBUtil;
 
+import java.text.ParseException;
 import java.util.Scanner;
 
 public class SubMenuOptions {
@@ -12,6 +13,7 @@ public class SubMenuOptions {
     private MenuGuestHouse menuGuestHouse;
     private MenuRoom menuRoom;
     private MenuMeal menuMeal;
+    private MenuBooking menuBooking;
 
     public SubMenuOptions() {
 
@@ -19,6 +21,8 @@ public class SubMenuOptions {
         this.menuGuestHouse = new MenuGuestHouse();
         this.menuRoom = new MenuRoom();
         this.menuMeal = new MenuMeal();
+        this.menuBooking = new MenuBooking();
+
     }
 
     private int menuOptions(Scanner input) {
@@ -38,7 +42,7 @@ public class SubMenuOptions {
         return input.nextInt();
     }
 
-    public void menuChoice(Scanner input) {
+    public void menuChoice(Scanner input) throws ParseException {
         while(!exit) {
             int userChoice = menuOptions(input);
             switch (userChoice) {
@@ -55,6 +59,7 @@ public class SubMenuOptions {
                     this.menuMeal.menuChoice(input);
                     break;
                 case 5:
+                    this.menuBooking.menuChoice(input);
                     break;
                 case 6:
                     break;

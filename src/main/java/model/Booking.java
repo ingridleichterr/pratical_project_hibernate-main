@@ -48,6 +48,13 @@ public class Booking {
     @JoinColumn(name="mealId")
     private Meal meal;
 
+    public Booking() {
+    }
+
+    public Booking(Date arrivalDate) {
+        this.arrivalDate = arrivalDate;
+    }
+
     //getters and setters
     public int getBookingId() {
         return bookingId;

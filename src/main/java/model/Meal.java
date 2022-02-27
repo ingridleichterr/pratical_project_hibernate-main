@@ -22,6 +22,7 @@ public class Meal {
     private double price;
 
     //foreign keys
+    //vt menuMeal classi kuidas teha
     @ManyToOne
     @JoinColumn(name="mealTypeId")
     private MealType mealType;
@@ -64,8 +65,23 @@ public class Meal {
         this.price = price;
     }
 
-    //to string method
+    public MealType getMealType() {
+        return mealType;
+    }
 
+    public void setMealType(MealType mealType) {
+        this.mealType = mealType;
+    }
+
+    public GuestHouse getGuestHouse() {
+        return guestHouse;
+    }
+
+    public void setGuestHouse(GuestHouse guestHouse) {
+        this.guestHouse = guestHouse;
+    }
+
+    //to string method
     @Override
     public String toString() {
         return "Meal{" +

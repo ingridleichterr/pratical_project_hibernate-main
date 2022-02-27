@@ -2,8 +2,10 @@ package menu;
 
 import model.Meal;
 
+import model.MealType;
 import persistence.RepositoryMeal;
 
+import java.text.ParseException;
 import java.util.Scanner;
 
 public class MenuMeal {
@@ -24,7 +26,7 @@ public class MenuMeal {
         return input.nextInt();
     }
 
-    protected void menuChoice(Scanner input) {
+    protected void menuChoice(Scanner input) throws ParseException {
 
         int userChoice;
         do {
@@ -59,12 +61,20 @@ public class MenuMeal {
         System.out.println("Menu register new meal");
         System.out.print("Type name of the meal: ");
         meal.setName(input.next());
+
         System.out.print("Type meal description: ");
         meal.setDescription(input.next());
+
         System.out.print("Type price of the meal: ");
         meal.setPrice(input.nextDouble());
-        //System.out.println("Type meal Type ID:\n1-Breakfast, 2-Lunch\n3-Dinner, 4-Snacks");
-        //meal.setPrice(input.nextDouble());
+
+        //IS foreign key so should be an OBJECT
+        System.out.println("Type meal Type ID:\n1-Breakfast, 2-Lunch\n3-Dinner, 4-Snacks");
+        //create object and give value
+        MealType mealTypeObject = new MealType();
+        mealTypeObject.setMealId(input.nextInt());
+        //set object value
+        meal.setMealType(mealTypeObject);
 
 
         repositoryMeal.saveMeal(meal);
@@ -75,7 +85,6 @@ public class MenuMeal {
     public void updateMealPriceByMealId(Scanner input){
 
         System.out.println("Menu update meal price by meal id");
-
         System.out.print("Type meal id: ");
         int mealId = input.nextInt();
 

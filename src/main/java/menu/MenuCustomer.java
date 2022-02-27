@@ -1,5 +1,6 @@
 package menu;
 
+import java.text.ParseException;
 import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -16,9 +17,9 @@ public class MenuCustomer {
         System.out.println("Select the submenu option: ");
         System.out.println("-------------------------\n");
         System.out.println();
-        System.out.println("1: List all customers");
+        System.out.println("1: List of all customers");
         System.out.println("2: Add new customer ");
-        System.out.println("3: List total active customers");
+        System.out.println("3: Show total number of customers");
         System.out.println("4: List total active and not active customers");
         System.out.println("5: Update customers phone number by customer id");
         System.out.println("100 - Return to Main Menu");
@@ -26,19 +27,20 @@ public class MenuCustomer {
         return input.nextInt();
     }
 
-    protected void menuChoice(Scanner input) {
+    protected void menuChoice(Scanner input) throws ParseException {
 
         int userChoice;
         do {
             userChoice = menuOptions(input);
             switch (userChoice) {
                 case 1:
-                    //menuListAllCustomers(input);
+                    menuListAllCustomers(input);
                     break;
                 case 2:
                     saveNewCustomer(input);
                     break;
                 case 3:
+                    countTotalCustomers();
                     break;
                 case 4:
                     break;
@@ -57,11 +59,11 @@ public class MenuCustomer {
 
 
     //list all customers case 1
-  /*  private void menuListAllCustomers(Scanner input) {
+  private void menuListAllCustomers(Scanner input) {
         List<Customer> listCustomer = repositoryCustomer.listAllCustomers();
 
         if (listCustomer.size() > 0) {
-            System.out.println("\nList of Customers:");
+            System.out.println("\nList of all customers:");
             for (Customer cust : listCustomer) {
                 System.out.println(cust.toString());
             }
@@ -71,12 +73,12 @@ public class MenuCustomer {
         }
     }
 
-   */
 
     //save new customer case 2
     public void saveNewCustomer(Scanner input){ //case1
 
         Customer customer = new Customer();
+
         System.out.println("Menu register new customer");
 
         //adding name and checking if its valid
@@ -157,4 +159,13 @@ public class MenuCustomer {
         return matcher.matches();
 
     }
+
+    //count all customers case 3
+    public void countTotalCustomers(){
+        long result = repositoryCustomer.countCustomers();
+        System.out.println("Total number of customers is: " + result);
+    }
+
+
 }
+

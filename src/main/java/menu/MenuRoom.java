@@ -3,6 +3,7 @@ package menu;
 import model.Room;
 import persistence.RepositoryRoom;
 
+import java.text.ParseException;
 import java.util.Scanner;
 
 public class MenuRoom {
@@ -23,7 +24,7 @@ public class MenuRoom {
         return input.nextInt();
     }
 
-    protected void menuChoice(Scanner input) {
+    protected void menuChoice(Scanner input) throws ParseException {
 
         int userChoice;
         do {
