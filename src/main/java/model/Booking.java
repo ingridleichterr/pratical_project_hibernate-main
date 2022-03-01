@@ -13,14 +13,14 @@ public class Booking {
     @Column(name = "bookingId")
     private int bookingId;
 
-    @Column(name = "numberOfPeople")
-    private int numberOfPeople;
-
     @Column(name = "arrivalDate")
-    private Date arrivalDate;
+    private String arrivalDate;
 
     @Column(name = "leavingDate")
-    private Date leavingDate;
+    private String leavingDate;
+
+    @Column(name = "numberOfPeople")
+    private int numberOfPeople;
 
     @Column(name = "bookerName")
     private String bookerName;
@@ -41,21 +41,26 @@ public class Booking {
     private Room room;
 
     @ManyToOne
-    @JoinColumn(name="customerId")
-    private Customer customer;
-
-    @ManyToOne
     @JoinColumn(name="mealId")
     private Meal meal;
 
+    @ManyToOne
+    @JoinColumn(name="customerId")
+    private Customer customer;
+
+    //empty constructor
     public Booking() {
     }
 
-    public Booking(Date arrivalDate) {
-        this.arrivalDate = arrivalDate;
+    public Booking(int bookingId, String bookerName, Room room, Meal meal) {
+        this.bookingId = bookingId;
+        this.bookerName = bookerName;
+        this.room = room;
+        this.meal = meal;
     }
 
     //getters and setters
+
     public int getBookingId() {
         return bookingId;
     }
@@ -72,17 +77,21 @@ public class Booking {
         this.numberOfPeople = numberOfPeople;
     }
 
-    public Date getArrivalDate() {
+    public String getArrivalDate() {
         return arrivalDate;
     }
 
-    public void setArrivalDate(Date arrivalDate) {this.arrivalDate = arrivalDate;}
+    public void setArrivalDate(String arrivalDate) {
+        this.arrivalDate = arrivalDate;
+    }
 
-    public Date getLeavingDate() {
+    public String getLeavingDate() {
         return leavingDate;
     }
 
-    public void setLeavingDate(Date leavingDate) {this.leavingDate = leavingDate;}
+    public void setLeavingDate(String leavingDate) {
+        this.leavingDate = leavingDate;
+    }
 
     public String getBookerName() {
         return bookerName;
@@ -92,7 +101,9 @@ public class Booking {
         this.bookerName = bookerName;
     }
 
-    public String getBookerEmail() {return bookerEmail;}
+    public String getBookerEmail() {
+        return bookerEmail;
+    }
 
     public void setBookerEmail(String bookerEmail) {
         this.bookerEmail = bookerEmail;
@@ -106,10 +117,43 @@ public class Booking {
         this.bookerPhoneNumber = bookerPhoneNumber;
     }
 
+    public BookingPayment getBookingPaymentId() {
+        return bookingPaymentId;
+    }
+
+    public void setBookingPaymentId(BookingPayment bookingPaymentId) {
+        this.bookingPaymentId = bookingPaymentId;
+    }
+
+    public Room getRoom() {
+        return room;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public Meal getMeal() {
+        return meal;
+    }
+
+    public void setMeal(Meal meal) {
+        this.meal = meal;
+    }
+
     //to string method
+
     @Override
     public String toString() {
-        return "booking{" +
+        return "Booking{" +
                 "bookingId=" + bookingId +
                 ", numberOfPeople=" + numberOfPeople +
                 ", arrivalDate=" + arrivalDate +
@@ -117,6 +161,10 @@ public class Booking {
                 ", bookerName='" + bookerName + '\'' +
                 ", bookerEmail='" + bookerEmail + '\'' +
                 ", bookerPhoneNumber='" + bookerPhoneNumber + '\'' +
+                ", bookingPaymentId=" + bookingPaymentId +
+                ", room=" + room +
+                ", customer=" + customer +
+                ", meal=" + meal +
                 '}';
     }
 }

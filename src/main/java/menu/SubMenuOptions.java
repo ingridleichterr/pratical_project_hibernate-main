@@ -1,10 +1,5 @@
 package menu;
 
-import model.Customer;
-import model.Room;
-import util.DBUtil;
-
-import java.text.ParseException;
 import java.util.Scanner;
 
 public class SubMenuOptions {
@@ -15,8 +10,8 @@ public class SubMenuOptions {
     private MenuMeal menuMeal;
     private MenuBooking menuBooking;
 
+    //constructor
     public SubMenuOptions() {
-
         this.menuCustomer = new MenuCustomer();
         this.menuGuestHouse = new MenuGuestHouse();
         this.menuRoom = new MenuRoom();
@@ -42,7 +37,7 @@ public class SubMenuOptions {
         return input.nextInt();
     }
 
-    public void menuChoice(Scanner input) throws ParseException {
+    public void menuChoice(Scanner input) {
         while(!exit) {
             int userChoice = menuOptions(input);
             switch (userChoice) {
@@ -70,15 +65,14 @@ public class SubMenuOptions {
                 case 9:
                     break;
                 case 10:
-
                     break;
                 case 100:
                     exit = true;
-                    System.out.println("System closed");
+                    System.out.println("System closed!");
                     break;
-//                default:
-//                    System.out.println("\nSorry, please enter valid Option");
-//                    menuChoice(input);
+               default:
+                    System.out.println("\nSorry, please enter valid Option");
+                    menuChoice(input);
             }
         }
     }

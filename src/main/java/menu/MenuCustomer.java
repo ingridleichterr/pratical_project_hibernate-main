@@ -1,6 +1,5 @@
 package menu;
 
-import java.text.ParseException;
 import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -20,14 +19,13 @@ public class MenuCustomer {
         System.out.println("1: List of all customers");
         System.out.println("2: Add new customer ");
         System.out.println("3: Show total number of customers");
-        System.out.println("4: List total active and not active customers");
-        System.out.println("5: Update customers phone number by customer id");
+        //System.out.println("4: Update customers phone number by customer id");
         System.out.println("100 - Return to Main Menu");
         System.out.println("\n/***************************************************/");
         return input.nextInt();
     }
 
-    protected void menuChoice(Scanner input) throws ParseException {
+    protected void menuChoice(Scanner input) {
 
         int userChoice;
         do {
@@ -68,7 +66,7 @@ public class MenuCustomer {
                 System.out.println(cust.toString());
             }
         } else {
-            System.out.println("\nNo customers registered\n");
+            System.out.println("\nSorry, currently are no customers registered!\n");
             menuOptions(input);
         }
     }
@@ -85,7 +83,7 @@ public class MenuCustomer {
         String name = null;
         boolean invalidName = true;
         while(invalidName){
-            System.out.println("Type full name of the customer");
+            System.out.print("Type full name of the customer: ");
             name=input.next();
             boolean result = validateName(name);
             if (result){
@@ -98,7 +96,7 @@ public class MenuCustomer {
         String phoneNumber = null;
         boolean invalidPhoneNum = true;
         while(invalidPhoneNum){
-            System.out.println("Type the phone number");
+            System.out.print("Type the customers phone number: ");
             phoneNumber = input.next();
             boolean result = validatePhoneNumber(phoneNumber);
             if (result){
@@ -111,7 +109,7 @@ public class MenuCustomer {
         String email = null;
         boolean invalidEmail = true;
         while (invalidEmail){
-            System.out.println("Type the email");
+            System.out.print("Type the customers e-mail: ");
             email=input.next();
             boolean result = validateEmail(email);
             if (result){
@@ -124,7 +122,7 @@ public class MenuCustomer {
         System.out.println("Customer saved successfully!");
     }
 
-    //method for checking if name is entered correctly
+    //case 2 - method for checking if name is entered correctly
     private boolean validateName (String name){
         //name can't contain special characters/numbers, length must be 3-20 characters
         Pattern pattern = Pattern.compile("^[a-zA-Z]+[\\-'\\s]?[a-zA-Z ]{2,19}$");
@@ -137,7 +135,7 @@ public class MenuCustomer {
     }
 
 
-    //method for checking if email is entered correctly
+    //case 2 - method for checking if email is entered correctly
     private boolean validateEmail (String email){
         Pattern pattern = Pattern.compile("^[A-Za-z0-9+_.-]+@(.+)$");
         Matcher matcher = pattern.matcher(email);
@@ -148,7 +146,7 @@ public class MenuCustomer {
         return matcher.matches();
     }
 
-    //method for checking if phone number is entered correctly
+    //case 2 - method for checking if phone number is entered correctly
     private boolean validatePhoneNumber (String phoneNumber){
         Pattern pattern = Pattern.compile("[0-9*#+() -]*");
         Matcher matcher = pattern.matcher(phoneNumber);
@@ -160,7 +158,7 @@ public class MenuCustomer {
 
     }
 
-    //count all customers case 3
+    //case 3 - count all customers
     public void countTotalCustomers(){
         long result = repositoryCustomer.countCustomers();
         System.out.println("Total number of customers is: " + result);

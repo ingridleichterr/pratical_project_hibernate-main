@@ -25,7 +25,7 @@ public class MealType {
     public void setMealId(int mealId) {this.mealId = mealId;
     }
 
-    public String getName() {return name;
+    public String getName(MealType mealTypeObject) {return name;
     }
 
     public void setName(String name) {this.name = name;

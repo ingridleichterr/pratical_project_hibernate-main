@@ -5,7 +5,7 @@ import java.util.Date;
 public class CountBooking {
 
     private long count;
-    private Date arrivalDate;
+    private String arrivalDate;
 
     public long getCount() {
         return count;
@@ -15,15 +15,15 @@ public class CountBooking {
         this.count = count;
     }
 
-    public Date getArrivalDate() {
+    public String getArrivalDate() {
         return arrivalDate;
     }
 
-    public void setArrivalDate(Date arrivalDate) {
+    public void setArrivalDate(String arrivalDate) {
         this.arrivalDate = arrivalDate;
     }
 
-    public CountBooking(Date arrivalDate, long count) {
+    public CountBooking(String arrivalDate, long count) {
         this.arrivalDate = arrivalDate;
         this.count = count;
 

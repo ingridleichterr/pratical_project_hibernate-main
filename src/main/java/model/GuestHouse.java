@@ -10,7 +10,7 @@ public class GuestHouse {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "guestHouseId")
-    private int bookingId;
+    private int guestHouseId;
 
     @Column(name = "name")
     private String name;
@@ -33,10 +33,10 @@ public class GuestHouse {
     }
 
     //getters and setters
-    public int getBookingId() {return bookingId;
+    public int getGuestHouseId() {return guestHouseId;
     }
 
-    public void setBookingId(int bookingId) {this.bookingId = bookingId;
+    public void setGuestHouseId(int bookingId) {this.guestHouseId = bookingId;
     }
 
     public String getName() {return name;
@@ -62,7 +62,7 @@ public class GuestHouse {
     @Override
     public String toString() {
         return "GuestHouse{" +
-                "bookingId=" + bookingId +
+                "bookingId=" + guestHouseId +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +

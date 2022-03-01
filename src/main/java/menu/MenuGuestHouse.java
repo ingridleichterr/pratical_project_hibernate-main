@@ -1,11 +1,8 @@
 package menu;
 
-
-import model.Customer;
 import model.GuestHouse;
 import persistence.RepositoryGuestHouse;
 
-import java.text.ParseException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -18,21 +15,21 @@ public class MenuGuestHouse {
         System.out.println("-------------------------\n");
         System.out.println();
         System.out.println("1: See Guesthouse information");
-        System.out.println("2: See Guesthouse history");
-        System.out.println("3: See Guesthouse gallery");
+        //System.out.println("2: See Guesthouse history");
+        //System.out.println("3: See Guesthouse gallery");
         System.out.println("100 - Return to Main Menu");
         System.out.println("\n/***************************************************/");
         return input.nextInt();
     }
 
-    protected void menuChoice(Scanner input) throws ParseException {
+    protected void menuChoice(Scanner input) {
 
         int userChoice;
         do {
             userChoice = menuOptions(input);
             switch (userChoice) {
                 case 1:
-                    showGuestHouseInfo(input);
+                    showGuestHouseInfo();
                     break;
                 case 2:
                     break;
@@ -50,14 +47,15 @@ public class MenuGuestHouse {
     }
 
     // case 1 - show questHouse info
-    private void showGuestHouseInfo(Scanner input) {
+    private void showGuestHouseInfo() {
         List<GuestHouse> guestHouseInfo = repositoryGuestHouse.showGuestHouseInfo();
-
-            for (GuestHouse gh : guestHouseInfo) {
-                System.out.println(gh.toString());
+            if (guestHouseInfo.size()>0){
+                for (GuestHouse gh : guestHouseInfo) {
+                    System.out.println(gh.toString());
+                }
+            } else {
+                System.out.println("\nSorry, currently there is no info available!\n");
             }
-
-            menuOptions(input);
         }
 
 

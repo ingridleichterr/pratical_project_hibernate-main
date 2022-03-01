@@ -1,9 +1,11 @@
 package menu;
 
+import model.GuestHouse;
 import model.Room;
+import model.RoomType;
 import persistence.RepositoryRoom;
 
-import java.text.ParseException;
+
 import java.util.Scanner;
 
 public class MenuRoom {
@@ -16,15 +18,15 @@ public class MenuRoom {
         System.out.println("-------------------------\n");
         System.out.println();
         System.out.println("1: List all rooms");
-        System.out.println("2: List all available rooms");
+        //System.out.println("2: List all available rooms");
         System.out.println("3: Add new room");
-        System.out.println("4: Update room by room id");
+        System.out.println("4: Update room price by room id");
         System.out.println("100 - Return to Main Menu");
         System.out.println("\n/***************************************************/");
         return input.nextInt();
     }
 
-    protected void menuChoice(Scanner input) throws ParseException {
+    protected void menuChoice(Scanner input) {
 
         int userChoice;
         do {
@@ -40,7 +42,7 @@ public class MenuRoom {
                     menuAddNewRoom(input);
                     break;
                 case 4:
-                    //menuUpdateRoom
+                    //menuUpdateRoomPrice(input)
                     break;
                 case 5:
                     break;
@@ -55,6 +57,8 @@ public class MenuRoom {
         } while (userChoice != 100);
     }
 
+
+
     public void menuAddNewRoom(Scanner input){ //case3
 
         Room room = new Room();
@@ -62,14 +66,21 @@ public class MenuRoom {
         System.out.print("Enter room name: ");
         room.setName(input.next());
 
-        System.out.print("Enter total available rooms: ");
-        room.setAvailability(input.nextInt());
+        System.out.print("Enter room type: ");
+        RoomType roomTypeObject = new RoomType();
+        roomTypeObject.setRoomTypeId(input.nextInt());
+        room.setRoomType(roomTypeObject);
 
-        System.out.print("Enter room price: ");
+        System.out.print("Enter room price per night: ");
         room.setPrice(input.nextDouble());
 
-        //System.out.print("Enter room type: ");
-        //room.setRoomType(input.nextInt());
+        System.out.print("Enter room availability (1 - YES, 0 - NO): ");
+        room.setPrice(input.nextInt());
+
+        System.out.print("Enter GuestHouse ID (always 1): ");
+        GuestHouse guestHouseObject = new GuestHouse();
+        guestHouseObject.setGuestHouseId(input.nextInt());
+        room.setGuestHouse(guestHouseObject);
 
         repositoryRoom.saveRoom(room);
         System.out.println("Room saved successfully!");

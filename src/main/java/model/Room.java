@@ -15,20 +15,23 @@ public class Room {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "availability")
-    private int availability;
+    //foreign key
+    @OneToOne
+    @JoinColumn(name="roomTypeId")
+    private RoomType roomType;
+
 
     @Column(name = "price")
     private double price;
 
-    //foreign keys
+    @Column(name = "availability")
+    private int availability;
+
+    //foreign key
     @ManyToOne
     @JoinColumn(name="guestHouseId")
     private GuestHouse guestHouse;
 
-    @OneToOne
-    @JoinColumn(name="roomTypeId")
-    private RoomType roomType;
 
     //constructor
     public Room(String name, int availability, double price, RoomType roomType) {

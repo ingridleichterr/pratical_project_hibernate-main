@@ -5,7 +5,7 @@ import model.Meal;
 import model.MealType;
 import persistence.RepositoryMeal;
 
-import java.text.ParseException;
+
 import java.util.Scanner;
 
 public class MenuMeal {
@@ -26,7 +26,7 @@ public class MenuMeal {
         return input.nextInt();
     }
 
-    protected void menuChoice(Scanner input) throws ParseException {
+    protected void menuChoice(Scanner input) {
 
         int userChoice;
         do {
